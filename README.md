@@ -5,7 +5,7 @@
 
 ## [Задание](https://github.com/ValantisJewelry/TestTaskValantis)
 
-## [Документация по работе с API прилагается] (https://github.com/ValantisJewelry/TestTaskValantis/blob/main/API.md)
+## [Документация по работе с API прилагается](https://github.com/ValantisJewelry/TestTaskValantis/blob/main/API.md)
 
 ## Запуск локально
 
