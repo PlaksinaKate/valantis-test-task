@@ -1,5 +1,5 @@
 import { ROUTES } from '../helpers/consts.js';
-import { Home } from './Home/index.jsx';
+import { Home } from './Products/index.jsx';
 import DefaultLayout from '../layouts/Default/index.jsx';
 import ErrorPage from './ErrorPage/index.jsx';
 
