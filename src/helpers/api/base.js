@@ -6,7 +6,7 @@ import { API_PASSWORD } from "../consts";
 export const METHODS = {
   apiBaseUrl: "/api",
   products: "get_items",
-  productsId: "get_ids",
+  productsIds: "get_ids",
   fields: "get_fields",
   filter: "filter",
 };

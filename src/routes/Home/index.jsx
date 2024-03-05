@@ -2,10 +2,20 @@ import { useEffect, useState } from "react";
 import { api } from "../../helpers/api";
 
 export function Home() {
+  const [productsIds, setProductsIds] = useState([]);
   const [products, setProducts] = useState([]);
 
-  const getProducts = async () => {
-    const data = await api.products.getProducts()
+  const getProductsIds = async () => {
+    const data = await api.products.getProductsIds(0)
+
+    if (data.result) {
+      setProductsIds(data.result);
+      getProducts(productsIds)
+    }
+  }
+
+  const getProducts = async (ids) => {
+    const data = await api.products.getProducts(ids)
 
     if (data.result) {
       setProducts(data.result)
@@ -13,11 +23,12 @@ export function Home() {
   }
 
   useEffect(() => {
-    getProducts()
+    getProductsIds()
   }, [])
-  console.log('products', products);
+
+
 
   return <div>
-    <h1>Привет!</h1>
+    <h1>Товары</h1>
   </div>;
 }
