@@ -1,0 +1,23 @@
+.paginator {
+  margin-top: 30px;
+}
+
+.navigation {
+  margin: 0 1.25rem;
+  font-size: 1.25rem;
+}
+
+.arrow {
+  cursor: pointer;
+  background-color: var(--blue);
+  color: white;
+  border: none;
+  padding: .9375rem 1.25rem;
+  border-radius: .625rem;
+  transition: all .35s ease-out;
+
+}
+
+.arrow:hover {
+  background-color: var(--black);
+}

@@ -1,24 +1,36 @@
 import { METHODS, apiInstance } from "./base";
+import { LIMIT_PRODUCTS } from "../consts.js";
 
-const getProductsIds = async (offset) => {
-  const response = await apiInstance.post('',{
+const getProductsIds = async (params) => {
+  const response = await apiInstance.post("", {
     action: METHODS.productsIds,
-    "params": {offset, "limit": 50},
+    params
   });
 
   return response.data;
 };
 
 const getProducts = async (ids) => {
-  const response = await apiInstance.post('',{
+  const response = await apiInstance.post("", {
     action: METHODS.products,
-    "params": { ids },
+    params: { ids },
   });
 
+  return response.data;
+};
+
+const getFields = async () => {
+  const response = await apiInstance.post("", {
+    action: METHODS.fields,
+    //"params": { "field": "brand", },
+  });
+
+  console.log("fields", response.data);
   return response.data;
 };
 
 export const products = {
   getProductsIds,
   getProducts,
+  getFields,
 };
