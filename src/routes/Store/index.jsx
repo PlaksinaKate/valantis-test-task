@@ -5,18 +5,20 @@ import { Wrapper } from "../../components/Wrapper";
 import { LIMIT_PRODUCTS } from "../../helpers/consts";
 import Pagination from "../../components/Pagination";
 import { useCallback } from "react";
-import { StoreItem } from "../../components/Store/StoreItem";
+import { StoreItem } from "./StoreItem";
+import { Filter } from "./Filter";
+import { getTotalPageProducts } from "../../helpers/helpers";
 
 export function Store() {
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
-  const [pageCount, setCageCount] = useState(0);
+  const [pageCount, setPageCount] = useState(0);
 
   const getPaginationNumber = async () => {
     const data = await api.products.getProductsIds(undefined, undefined);
 
     if (data.result) {
-      setCageCount(Math.ceil(data.result.length / LIMIT_PRODUCTS));
+      setPageCount(getTotalPageProducts(data.result.length));
     }
   };
 
@@ -68,6 +70,7 @@ export function Store() {
       <section>
         <Wrapper>
           <h1 className={styles.title}>Товары</h1>
+          <Filter getProducts={getProducts} setPage={setPage} setPageCount={setPageCount}/>
           <div className={styles.wr}>{store}</div>
           <Pagination page={page} setPage={setPage} pageCount={pageCount} />
         </Wrapper>

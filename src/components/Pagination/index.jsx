@@ -1,3 +1,4 @@
+import { Button } from "../Button";
 import styles from "./index.module.css";
 import React from "react";
 
@@ -24,27 +25,25 @@ function Pagination({page, setPage, pageCount}) {
 
   return (
     <div className={styles.paginator}>
-      <button
-        className={styles.arrow}
+      <Button
         type="button"
         onClick={handlePrevPageClick}
         disabled={disable.left}
       >
         {"<"}
-      </button>
+      </Button>
       {page && (
         <span className={styles.navigation}>
           {page} / {pageCount}
         </span>
       )}
-      <button
-        className={styles.arrow}
+      <Button
         type="button"
         onClick={handleNextPageClick}
         disabled={disable.right}
       >
         {">"}
-      </button>
+      </Button>
     </div>
   );
 }

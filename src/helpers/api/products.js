@@ -22,10 +22,17 @@ const getProducts = async (ids) => {
 const getFields = async () => {
   const response = await apiInstance.post("", {
     action: METHODS.fields,
-    //"params": { "field": "brand", },
   });
 
-  console.log("fields", response.data);
+  return response.data;
+};
+
+const filtered = async (params) => {
+  const response = await apiInstance.post("", {
+    action: METHODS.filter,
+    params
+  });
+
   return response.data;
 };
 
@@ -33,4 +40,5 @@ export const products = {
   getProductsIds,
   getProducts,
   getFields,
+  filtered
 };
