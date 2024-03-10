@@ -22,6 +22,7 @@ export function Store() {
     if (data.result) {
       setPageCount(getTotalPageProducts(data.result.length));
     }
+
   };
 
   const getProductsIds = useCallback(async () => {
