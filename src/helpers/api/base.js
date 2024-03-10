@@ -22,9 +22,7 @@ const getApiPassword = () => {
   const todayMonth =
     today.getMonth() < 10 ? "0" + (today.getMonth() + 1) : today.getMonth() + 1;
   const todayDay =
-    today.getDate() - 1 < 10
-      ? "0" + (today.getDate() - 1)
-      : today.getDate() - 1;
+    today.getDate() < 10 ? "0" + today.getDate() : today.getDate();
   const passwordDate = `${todayYear}${todayMonth}${todayDay}`;
 
   return convertToMd5(`${API_PASSWORD}_${passwordDate}`);
