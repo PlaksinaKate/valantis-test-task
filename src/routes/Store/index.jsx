@@ -22,8 +22,8 @@ export function Store() {
 
   const getProductsIds = useCallback(async () => {
     const params = {
-      offset: (page - 1) * LIMIT_PRODUCTS,
-      limit: LIMIT_PRODUCTS,
+      offset: (page - 1) * (LIMIT_PRODUCTS - 1),
+      limit: LIMIT_PRODUCTS - 1,
     };
     const data = await api.products.getProductsIds(params);
 
