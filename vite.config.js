@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 /** @type {import('vite').UserConfig} */
 export default defineConfig({
   plugins: [react()],
-  base: '/',
+  base: '/valantis-test-task/',
   server: {
     proxy: {
       // Using the proxy instance
