@@ -1,0 +1,13 @@
+.img img {
+  max-width: 100%;
+  width: 100%;
+  border-radius: 1.25rem;
+}
+
+.product {
+  flex-basis: calc((100% - 200px) / 4);
+  margin-bottom: 2.5rem;
+  border: .0625rem solid var(--blue);
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+}

@@ -1,11 +1,18 @@
-html,
+:root {
+  --black: #191919;
+  --blue: #00b;
+}
+
+
 body {
-  background-color: #191919;
+  background-color: var(--black);
   color: white;
   margin: 0;
   padding: 0;
   max-width: 100%;
   width: 100vw;
+  position: relative;
+  min-width: 320px;
 }
 
 .center {
