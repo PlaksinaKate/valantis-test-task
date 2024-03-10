@@ -8,3 +8,9 @@
 .title {
   font-size: 4rem;
 }
+
+@media screen and (max-width: 425px) {
+  .wr {
+    margin-top: 50px;
+  }
+} 
