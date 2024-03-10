@@ -5,7 +5,7 @@ import styles from "./index.module.css";
 import { api } from "../../../helpers/api";
 import { getTotalPageProducts } from "../../../helpers/helpers";
 
-export function Filter({ getProducts, setPage, setPageCount }) {
+export function Filter({ getProducts, setPage, setPageCount, setIsLoading }) {
   const [price, setPrice] = useState(null);
   const [name, setName] = useState(null);
   const [brand, setBrand] = useState(null);
@@ -15,6 +15,7 @@ export function Filter({ getProducts, setPage, setPageCount }) {
   const onChangeBrand = (e) => setBrand(e.target.value);
 
   const onFilter = async () => {
+    setIsLoading(true)
     const params = {
       price: price ? Number(price + ".0") : undefined,
       product: name ? name : undefined,
@@ -23,9 +24,9 @@ export function Filter({ getProducts, setPage, setPageCount }) {
     const data = await api.products.filtered(params);
 
     if (data.result) {
-      getProducts(data.result);
       setPage(1);
-      setPageCount(getTotalPageProducts(data.result.length))
+      setPageCount(getTotalPageProducts(data.result.length));
+      getProducts(data.result);
     }
   };
 

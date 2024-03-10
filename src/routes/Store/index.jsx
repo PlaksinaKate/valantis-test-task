@@ -8,11 +8,13 @@ import { useCallback } from "react";
 import { StoreItem } from "./StoreItem";
 import { Filter } from "./Filter";
 import { getTotalPageProducts } from "../../helpers/helpers";
+import { Loader } from "../../components/Loader";
 
 export function Store() {
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
-  const [pageCount, setPageCount] = useState(0);
+  const [pageCount, setPageCount] = useState(1);
+  const [isLoading, setIsLoading] = useState(true);
 
   const getPaginationNumber = async () => {
     const data = await api.products.getProductsIds(undefined, undefined);
@@ -44,6 +46,7 @@ export function Store() {
             products.findIndex((product2) => product2.id === product.id) === i
         );
         setProducts(uniqueResults);
+        setIsLoading(false);
       }
     },
     [products]
@@ -70,9 +73,25 @@ export function Store() {
       <section>
         <Wrapper>
           <h1 className={styles.title}>Товары</h1>
-          <Filter getProducts={getProducts} setPage={setPage} setPageCount={setPageCount}/>
-          <div className={styles.wr}>{store}</div>
-          <Pagination page={page} setPage={setPage} pageCount={pageCount} />
+          {isLoading ? (
+            <Loader />
+          ) : (
+            <>
+              <Filter
+                getProducts={getProducts}
+                setPage={setPage}
+                setPageCount={setPageCount}
+                setIsLoading={setIsLoading}
+              />
+              <div className={styles.wr}>{store}</div>
+              <Pagination
+                page={page}
+                setPage={setPage}
+                pageCount={pageCount}
+                setLoading={setIsLoading}
+              />
+            </>
+          )}
         </Wrapper>
       </section>
     </main>

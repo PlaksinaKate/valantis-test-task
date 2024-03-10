@@ -2,7 +2,7 @@ import { Button } from "../Button";
 import styles from "./index.module.css";
 import React from "react";
 
-function Pagination({page, setPage, pageCount}) {
+function Pagination({page, setPage, pageCount, setLoading}) {
 
   const disable = {
     left: page === 1,
@@ -13,12 +13,14 @@ function Pagination({page, setPage, pageCount}) {
     const current = page;
     const next = current + 1;
     const total = pageCount;
+    setLoading(true);
 
     setPage(next <= total ? next : current);
   };
   const handlePrevPageClick = () => {
     const current = page;
     const prev = current - 1;
+    setLoading(true);
 
     setPage(prev > 0 ? prev : current);
   };

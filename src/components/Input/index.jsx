@@ -11,7 +11,7 @@ export function Input({
       placeholder={placeholder}
       value={value}
       onChange={onChange}
-      attr
+      {...attr}
     />
   );
 }
