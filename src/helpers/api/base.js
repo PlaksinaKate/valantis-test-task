@@ -4,7 +4,7 @@ import { convertToMd5 } from "../helpers";
 import { API_PASSWORD } from "../consts";
 
 export const METHODS = {
-  apiBaseUrl: "/api",
+  apiBaseUrl: import.meta.env.VITE_API_URL,
   products: "get_items",
   productsIds: "get_ids",
   fields: "get_fields",

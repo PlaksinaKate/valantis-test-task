@@ -1,5 +1,5 @@
 export const ROUTES = {
-  home: '/',
+  home: '/valantis-test-task/',
 }
 
 export const isDevEnv = import.meta.env.DEV;
